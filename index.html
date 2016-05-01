@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>todo app mobile</title>
+<link rel="stylesheet" href=".\node_modules\light7\dist\css\light7.min.css">
+<link rel="stylesheet" href=".\node_modules\light7\dist\css\light7-swiper.min.css">
+<link rel="stylesheet" href=".\node_modules\light7\dist\css\light7-swipeout.css">
+<link rel="stylesheet" href="./src/assets/style.css">
+
+</head>
+<body>
+    <div id="app"></div>
+
+    <script src=".\node_modules\jquery\dist\jquery.js"></script>
+    <script>
+    //关闭light7自带路由(需在调用light7.min.js之前关闭)，使用vue-router
+	$.config = {
+		router: false
+	}
+    </script>
+  	<script src=".\node_modules\light7\dist\js\light7.js"></script>
+  	<script src=".\node_modules\light7\dist\js\light7-swiper.min.js"></script>
+  	<script src=".\node_modules\light7\dist\js\light7-swipeout.js"></script>
+    <script src="dist/build.js"></script>
+    
+</body>
+</html>
