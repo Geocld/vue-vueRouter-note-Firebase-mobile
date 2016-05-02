@@ -7,6 +7,7 @@ import noteList from './components/noteList.vue'
 import editNote from './components/editNote.vue'
 import addNote from './components/addNote.vue'
 import categoryList from './components/categoryList.vue'
+
 Vue.use(VueRouter)
 
 var router = new VueRouter();

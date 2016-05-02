@@ -126,6 +126,10 @@ export default {
       this.$router.go('/home');
     },
     addNote: function() {
+      if (this.title === '') {
+        var now = moment().format('L');
+        this.title = now;
+      }
       const newNote = {
         title: this.title,
         content: this.content,
@@ -138,6 +142,10 @@ export default {
       this.$router.go('/noteList');
     },
     saveNote: function() {
+      if (this.title === '') {
+        var now = moment().format('L');
+        this.title = now;
+      }
       const editContent = {
         title: this.title,
         content: this.content,
