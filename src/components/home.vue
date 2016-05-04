@@ -18,13 +18,13 @@
       </div>
   </div>
 
-  <div class="card" v-for="(id, item) in notes" v-if="$index<2">
-      <div class="card-header"><a>{{item.title}}</a></div>
+  <div class="card" v-for="note in note_arr | limitBy 2">
+      <div class="card-header"><a>{{note.title}}</a></div>
       <div class="card-content">
-        <div class="card-content-inner">{{item.content}}</div>
+        <div class="card-content-inner">{{note.content}}</div>
       </div>
       <div class="card-footer">
-        <div class="tag {{categories[item.category]}}">{{item.category}}</div>
+        <div class="tag {{categories[note.category]}}">{{note.category}}</div>
       </div>
   </div>
 
@@ -59,9 +59,20 @@ export default {
   	}
   },
   computed: {
+    note_arr() {
+	  var arr = [];
+	  for (var i in this.notes) {
+		if (this.notes.hasOwnProperty(i)) {
+			arr.push(this.notes[i]);
+		}
+	  }
+	  arr.sort(function(a, b) {
+		return new Date(b.date.replace(/\s/ig,'T')) - new Date(a.date.replace(/\s/ig,'T'))
+	  });
+	  return arr;
+	},
     noteCount() {
-      var noteArr = Object.keys(this.notes);
-      return noteArr.length;
+      return this.note_arr.length;
     },
     categoryCount() {
       var catArr = Object.keys(this.categories);

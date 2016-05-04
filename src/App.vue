@@ -90,6 +90,7 @@
 </template>
 
 <script>
+import moment from 'moment'
 import store from './store/index.js'
 import editCategoryPopup from './components/editCategoryPopup.vue'
 import addCategoryPopup from './components/addCategoryPopup.vue'
@@ -126,14 +127,15 @@ export default {
       this.$router.go('/home');
     },
     addNote: function() {
+	  var now = moment().format('YYYY-MM-DD HH:mm');
       if (this.title === '') {
-        var now = moment().format('L');
         this.title = now;
       }
       const newNote = {
         title: this.title,
         content: this.content,
-        category: this.category
+        category: this.category,
+		date: now
       };
       store.addNote(newNote);
       this.title = '';
@@ -142,14 +144,15 @@ export default {
       this.$router.go('/noteList');
     },
     saveNote: function() {
+	  var now = moment().format('YYYY-MM-DD HH:mm');
       if (this.title === '') {
-        var now = moment().format('L');
         this.title = now;
       }
       const editContent = {
         title: this.title,
         content: this.content,
-        category: this.category
+        category: this.category,
+		date: now
       };
       //console.log(this.id)
       store.editNote(this.id, editContent);
@@ -164,7 +167,6 @@ export default {
       this.notes = notes;
     },
     categoryListToHome: function() {
-      $('.index-list-bar').remove();
       this.$router.go('/home');
     },
     addCategory: function() {

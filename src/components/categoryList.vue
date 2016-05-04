@@ -28,6 +28,11 @@
 import store from '../store'
 export default {
   props: ['select_category','categories','category_name','category_color'],
+  route: {
+	deactivate: function() {
+	  $('.index-list-bar').remove();
+	}
+  },
   ready() {
     $(".contacts-block").indexList();
   },
