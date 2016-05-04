@@ -10,7 +10,7 @@
 
 [demo预览](http://geocld.github.io/demo/mobile-note/index.html)
 
-最好在手机端查看使用本app，扫如下二维码即可进入项目在线地址：
+最好在手机端查看使用本app，扫如下二维码即可进入项目在线地址： 
 
 ![](http://i.imgur.com/QR5O8PF.png)
 
