@@ -7,26 +7,26 @@
  <div>
 	<div class="list-block media-list">
       <ul>
-        <li class="swipeout" v-for="(id, item) in notes | filterBytitle query | filterByCategory select_category">
+        <li class="swipeout" v-for="note in note_arr | filterBytitle query | filterByCategory select_category">
           <div class="swipeout-content">
             <div class="item-content">
               <div class="item-inner">
                 <div class="item-title-row">
-                  <div class="item-title" @click="editNote(id,item)">
-                  <a>{{ item.title }}</a>
+                  <div class="item-title" @click="editNote(note)">
+                  <a>{{ note.title }}</a>
                   </div>
                   <div class="item-after">
-                    <div class="tag {{categories[item.category]}}">{{ item.category }}</div>
+                    <div class="tag {{categories[note.category]}}">{{ note.category }}</div>
                   </div>
                 </div>
                 <div class="item-text">
-                {{ item.content }}
+                {{ note.content }}
                 </div>
               </div>
             </div>
           </div>
           <div class="swipeout-actions-right">
-            <a class="bg-success" @click="deleteNote(id)">删除</a>
+            <a class="bg-success" @click="deleteNote(note.id)">删除</a>
             <a class="swipeout-close">关闭</a>
           </div>
         </li>
@@ -46,12 +46,27 @@ export default {
   	filterBytitle,
     filterByCategory
   },
+  computed: {
+	note_arr() {
+	  var arr = [];
+	  for (var i in this.notes) {
+		if (this.notes.hasOwnProperty(i)) {
+			this.notes[i].id = i;
+			arr.push(this.notes[i]);
+		}
+	  }
+	  arr.sort(function(a, b) {
+		return new Date(b.date.replace(/\s/ig,'T')) - new Date(a.date.replace(/\s/ig,'T'))
+	  });
+	  return arr;
+	}
+  },
   methods: {
-  	editNote(id,item) {
-  		tmp.note.id = id;
-  		tmp.note.title = item.title;
-  		tmp.note.content = item.content;
-  		tmp.note.category = item.category;
+  	editNote(note) {
+  		tmp.note.id = note.id;
+  		tmp.note.title = note.title;
+  		tmp.note.content = note.content;
+  		tmp.note.category = note.category;
   		this.$router.go('/editNote');
   	},
   	deleteNote(id) {
