@@ -1,4 +1,14 @@
 # vue-vueRouter-note-Firebase-mobile
+# update
+
+此项目已更新至Vue2.0+，使用REST API作为数据驱动，UI组件不再依赖第三方组件库，更新项目目前依旧在完善中，感兴趣可以到这个项目查看：[vue2-firebase-REST-note-mobile](https://github.com/Geocld/vue2-firebase-REST-note-mobile)
+
+
+
+----
+
+
+
 一个基于vue.js和Firebase制作的笔记spa（mobile端），UI库使用light7，页面切换使用vue-router。
 
 此项目有独立PC版本，PC版项目请移步[vue-note-firebase-app](https://github.com/Geocld/vue-note-firebase-app)
