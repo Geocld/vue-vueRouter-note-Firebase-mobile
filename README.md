@@ -24,7 +24,7 @@
 
 ![](http://i.imgur.com/QR5O8PF.png)
 
-#项目安装
+# 项目安装
 
 1、安装依赖
 
@@ -39,7 +39,7 @@
 	npm run build
 
 
-#效果预览
+# 效果预览
 
 ![](http://i.imgur.com/G3t8wfA.png)
 
@@ -47,7 +47,7 @@
 
 ![](http://i.imgur.com/2JolWY1.png)
 
-#TODO
+# TODO
 1. 目前router组件数据之间通信使用的是全局变量的方式，后续会改成使用vuex控制数据流的走向
 
 2. 增加日期排序
